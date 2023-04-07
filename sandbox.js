@@ -1,7 +1,11 @@
 var character = 'Hero Babu';
-console.log(character);
-var inputs = document.querySelectorAll('input');
-console.log(inputs);
-inputs.forEach(function (input) {
-    console.log(input);
-});
+var age = 30;
+var isBlackBelt = false;
+//This throws error because variable Character is already assigned as a String and cannot be assigned with number
+//character = 20
+character = "This is a String";
+//Strictly assigning that diameter must be of the type number 
+var circ = function (diameter) {
+    return diameter * Math.PI;
+};
+console.log(circ(7.5));

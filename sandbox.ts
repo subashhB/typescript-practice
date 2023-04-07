@@ -1,11 +1,14 @@
-const character = 'Hero Babu'
+let character = 'Hero Babu';
+let age = 30;
+let isBlackBelt = false;
 
-console.log(character)
+//This throws error because variable Character is already assigned as a String and cannot be assigned with number
+//character = 20
+character = "This is a String"
 
-const inputs = document.querySelectorAll('input')
+//Strictly assigning that diameter must be of the type number 
+const circ = (diameter: number)=>{
+    return diameter * Math.PI;
+}
 
-console.log(inputs)
-
-inputs.forEach(input=>{
-    console.log(input)
-})
+console.log(circ(7.5))
