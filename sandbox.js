@@ -1,28 +1,20 @@
-//Arrays
-var names = ['Arthur', 'Romulus', 'Orion'];
-// names = 'You are a String now'; //You can't do this because names was introduced as array
-names.push('Castoria');
-//TypeScript won't let us push a number into this array because initially we defined Strings into it.
-// names.push(3)
-// names[0] = 3
-// Declaring Array with Mixed Types
-var mixed = ['Zhuge Liang', 5, 'Caster'];
-// TypeScipt won't let us push a Boolean because it wasn't initially present in the array.
-// mixed.push(true);
-mixed[0] = 3; // TypeScript would let us to set the value of number which was originally a String though.
-//Objects
-var ninja = {
-    name: 'Mario',
-    age: 30,
-    isBlackBelt: true
-};
-ninja.age = 40; // You can do this as age key was initially declared with a number
-//Has the same restrictions as Array or any TypeScript Variables
-// ninja.skills = ['Shuriken', 'Kunai Throwing']; //You cannot do this because you cannot add new key to the object which wasn't present in it in the first place.
-//You can override the object though but it needs to be of the same structure as the original object, nor you can add other properties
-ninja = {
-    name: 'Not Mario',
-    age: 40,
-    isBlackBelt: false
-};
-//You cannot have a missing key or key with other types rather than the originally declared
+//explicit types: letting us to declare a variable without initializing them with value
+var character; //This is Similar to declaring String character;
+var age; //Similar to int age or float age or other number types, typeScript doesn't care for this one
+var isLoggedIn; //Similar to bool isLoggedIn
+//arrays
+var ninjas; // Ninjas can only be array of strings now **Note that this is just a declaration| To initialize this you must write string[] = []; otherwise you won't be able to push into this with just the declaration
+//ninjas = [10,20]; // TypeScript won't let it happen
+ninjas = ['Naruto', "Naruto's Son"]; // This is okay
+//union types: Declaring Mixed Types array
+var mixed = []; //Now mixed can store string and number
+mixed.push('Hello world');
+mixed.push(23);
+var uid; // uid can be string or a number
+//objects
+var ninjaOne; //Now ninjaOne can only be object
+ninjaOne = { name: 'Shinobi', age: 30 };
+ninjaOne = ["Array"]; //Array is acceptable because objects are a type of array
+//Explicit Types of a object property
+var ninjaTwo;
+//ninjaTwo ={}; // Not allowed because ninjaTwo must have the properties that were declared
