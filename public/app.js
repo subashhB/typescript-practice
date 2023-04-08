@@ -1,21 +1,18 @@
 "use strict";
 //Classes
 class Invoice {
-    constructor(_client, _details, _amount) {
-        this.client = _client;
-        this.details = _details;
-        this.amount = _amount;
+    // private client: string;
+    // readonly details: string; //Cannot change it's value even inside the class
+    // public amount: number;
+    constructor(client, details, amount) {
+        this.client = client;
+        this.details = details;
+        this.amount = amount;
     }
     format() {
         return `${this.client} owes £ ${this.amount} for ${this.details}`;
     }
 }
-const invoiceOne = new Invoice('Chor', 'Loan', 250);
-const invoiceTwo = new Invoice('Siddha Manchhe', 'Loan', 3000);
-let invoices = [];
-invoices.push(invoiceOne);
-invoices.push(invoiceTwo);
-console.log(invoices);
 const form = document.querySelector('.new-item-form');
 //inputs 
 const type = document.querySelector('#type');

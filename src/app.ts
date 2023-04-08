@@ -1,27 +1,19 @@
 //Classes
 class Invoice{
-    client: string;
-    details: string;
-    amount: number;
+    // private client: string;
+    // readonly details: string; //Cannot change it's value even inside the class
+    // public amount: number;
 
-    constructor(_client: string, _details: string, _amount: number){
-        this.client = _client;
-        this.details = _details;
-        this.amount = _amount;
-    }
+    constructor(
+        readonly client: string,
+        private details: string,
+        public amount: number
+    ){}
 
     format(){
         return `${this.client} owes £ ${this.amount} for ${this.details}`
     }
 }
-
-const invoiceOne = new Invoice('Chor', 'Loan', 250);
-const invoiceTwo = new Invoice('Siddha Manchhe', 'Loan', 3000);
-
-let invoices: Invoice[] = [];
-invoices.push(invoiceOne);
-invoices.push(invoiceTwo)
-console.log(invoices)
 
 const form = document.querySelector('.new-item-form') as HTMLFormElement;
 
