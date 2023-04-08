@@ -1,8 +1,29 @@
-const form = document.querySelector('.new-item-form') as HTMLFormElement;
-//as HTMLFormElement is type-casting becuase when we grab a HTML element using class it doesn't know which type of element it will be because class can be applied to any element.
-//Now form is a HTMLFormElement
+//Classes
+class Invoice{
+    client: string;
+    details: string;
+    amount: number;
 
-console.log(form.children)
+    constructor(_client: string, _details: string, _amount: number){
+        this.client = _client;
+        this.details = _details;
+        this.amount = _amount;
+    }
+
+    format(){
+        return `${this.client} owes £ ${this.amount} for ${this.details}`
+    }
+}
+
+const invoiceOne = new Invoice('Chor', 'Loan', 250);
+const invoiceTwo = new Invoice('Siddha Manchhe', 'Loan', 3000);
+
+let invoices: Invoice[] = [];
+invoices.push(invoiceOne);
+invoices.push(invoiceTwo)
+console.log(invoices)
+
+const form = document.querySelector('.new-item-form') as HTMLFormElement;
 
 //inputs 
 const type = document.querySelector('#type') as HTMLSelectElement;
