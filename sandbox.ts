@@ -1,32 +1,28 @@
-//explicit types: letting us to declare a variable without initializing them with value
-let character: string; //This is Similar to declaring String character;
-let age: number; //Similar to int age or float age or other number types, typeScript doesn't care for this one
-let isLoggedIn: false; //Similar to bool isLoggedIn
+//You can use 'any' for declaring dynamic type variable
+//This reverts the power of TypeScript so think twice before using this
 
 
-//arrays
-let ninjas: string[]; // Ninjas can only be array of strings now **Note that this is just a declaration| To initialize this you must write string[] = []; otherwise you won't be able to push into this with just the declaration
-//ninjas = [10,20]; // TypeScript won't let it happen
-ninjas = ['Naruto', "Naruto's Son"]; // This is okay
+let age: any =25;
+console.log(age)
 
+age = true; //Boolean
+age= 'Twenty Four' //String
+age = { name: 'Subash', age: 23} //An Objects
 
-//union types: Declaring Mixed Types array
-let mixed: (string| number)[] = []; //Now mixed can store string and number
-mixed.push('Hello world');
-mixed.push(23)
+console.log(age)
 
-let uid: string|number; // uid can be string or a number
+//With any type of array you can push any type of data into that array
+let mixed : any[] = [];
+mixed.push(5)
+mixed.push('Five')
+mixed.push(true)
+mixed.push({object: 'Object', number: 5})
 
-//objects
-let ninjaOne: object; //Now ninjaOne can only be object
-ninjaOne = {name: 'Shinobi', age: 30}
-ninjaOne = ["Array"]; //Array is acceptable because objects are a type of array
+console.log(mixed)
 
-//Explicit Types of a object property
-let ninjaTwo : {
-    name: string,
-    age: number,
-    isLoggedIn: boolean
-}
+//For an object with Properties of any type just use ':'
 
-//ninjaTwo ={}; // Not allowed because ninjaTwo must have the properties that were declared
+let object: {name: any, object: any}
+
+object = {name: 'Subash', object:{object: 34}} // This is fine
+// object = {name: 'Subash', object:{object: 34}, age: 23} //But this is not, because it doesn't follow the original assigned structure of the object
