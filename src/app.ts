@@ -26,4 +26,27 @@ form.addEventListener('submit', (e: Event)=>{
     }
     list.render(doc, type.value, 'end')
     console.log(doc)
-})
+});
+
+//Generics
+const addUID = <T extends {name: string}>(obj: T) =>{
+    let uid = Math.floor(Math.random() * 100);
+    return {...obj, uid}
+}
+
+let docOne = addUID({name: 'Full Name', age: 30});
+
+console.log(docOne.age) // !This generates error because TypeScript doesn't know if docOne has 'name' property or not.
+
+//With the interface
+interface Resources<T>{
+    uid: number;
+    resourceName: string;
+    data: T;
+}
+
+const info: Resources <string> ={
+    uid: 23,
+    resourceName: 'Resourse Info',
+    data: 'Data String',
+}
