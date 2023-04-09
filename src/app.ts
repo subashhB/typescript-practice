@@ -17,40 +17,16 @@ const list = new ListTemplate(ul);
 
 form.addEventListener('submit', (e: Event)=>{
     e.preventDefault();
+
+    let values: [string, string, number]
+    values = [toFrom.value, details.value, amount.valueAsNumber]
     
     let doc: HasFormatter;
     if(type.value === 'invoice'){
-        doc = new Invoice(toFrom.value, details.value, amount.valueAsNumber);
+        doc = new Invoice(...values);
     }else{
-        doc = new Payment(toFrom.value, details.value, amount.valueAsNumber)
+        doc = new Payment(...values)
     }
     list.render(doc, type.value, 'end')
     console.log(doc)
 });
-
-//Generics
-const addUID = <T extends {name: string}>(obj: T) =>{
-    let uid = Math.floor(Math.random() * 100);
-    return {...obj, uid}
-}
-
-let docOne = addUID({name: 'Full Name', age: 30});
-
-console.log(docOne.age) // !This generates error because TypeScript doesn't know if docOne has 'name' property or not.
-
-//Enums
-
-enum ResourseType {Book, Film, Manga, Series}
-interface Resources<T>{
-    uid: number;
-    resourceType: ResourseType;
-    data: T;
-}
-
-const docThree: Resources<string> ={
-    uid: 123,
-    resourceType: ResourseType.Book,
-    data: 'Ikigai'
-}
-
-console.log(docThree)
