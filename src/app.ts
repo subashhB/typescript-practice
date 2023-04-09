@@ -18,7 +18,7 @@ const list = new ListTemplate(ul);
 form.addEventListener('submit', (e: Event)=>{
     e.preventDefault();
 
-    let values: [string, string, number]
+    let values: [string, string, number] //Explicitly Declared Tuple
     values = [toFrom.value, details.value, amount.valueAsNumber]
     
     let doc: HasFormatter;

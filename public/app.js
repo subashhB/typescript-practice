@@ -12,7 +12,7 @@ const ul = document.querySelector('ul');
 const list = new ListTemplate(ul);
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    let values;
+    let values; //Explicitly Declared Tuple
     values = [toFrom.value, details.value, amount.valueAsNumber];
     let doc;
     if (type.value === 'invoice') {
