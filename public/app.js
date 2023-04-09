@@ -29,8 +29,17 @@ const addUID = (obj) => {
 };
 let docOne = addUID({ name: 'Full Name', age: 30 });
 console.log(docOne.age); // !This generates error because TypeScript doesn't know if docOne has 'name' property or not.
-const info = {
-    uid: 23,
-    resourceName: 'Resourse Info',
-    data: 'Data String',
+//Enums
+var ResourseType;
+(function (ResourseType) {
+    ResourseType[ResourseType["Book"] = 0] = "Book";
+    ResourseType[ResourseType["Film"] = 1] = "Film";
+    ResourseType[ResourseType["Manga"] = 2] = "Manga";
+    ResourseType[ResourseType["Series"] = 3] = "Series";
+})(ResourseType || (ResourseType = {}));
+const docThree = {
+    uid: 123,
+    resourceType: ResourseType.Book,
+    data: 'Ikigai'
 };
+console.log(docThree);

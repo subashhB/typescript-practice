@@ -38,15 +38,19 @@ let docOne = addUID({name: 'Full Name', age: 30});
 
 console.log(docOne.age) // !This generates error because TypeScript doesn't know if docOne has 'name' property or not.
 
-//With the interface
+//Enums
+
+enum ResourseType {Book, Film, Manga, Series}
 interface Resources<T>{
     uid: number;
-    resourceName: string;
+    resourceType: ResourseType;
     data: T;
 }
 
-const info: Resources <string> ={
-    uid: 23,
-    resourceName: 'Resourse Info',
-    data: 'Data String',
+const docThree: Resources<string> ={
+    uid: 123,
+    resourceType: ResourseType.Book,
+    data: 'Ikigai'
 }
+
+console.log(docThree)
